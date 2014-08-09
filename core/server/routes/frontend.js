@@ -1,11 +1,15 @@
 var frontend    = require('../controllers/frontend'),
     config      = require('../config'),
+	contact     = require('../controllers/contact'),
 
     ONE_HOUR_S  = 60 * 60,
     ONE_YEAR_S  = 365 * 24 * ONE_HOUR_S;
 
 module.exports = function (server) {
     var subdir = config().paths.subdir;
+	
+	// ### Custom
+	server.post('/sendcontact/', contact.doSend);
 
     // ### Frontend routes
     server.get('/rss/', frontend.rss);
