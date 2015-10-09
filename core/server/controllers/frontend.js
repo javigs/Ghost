@@ -329,7 +329,8 @@ frontendControllers = {
                     params.edit = params.edit.toLowerCase();
                 }
                 if (params.edit === 'edit') {
-                    return res.redirect(config.paths.subdir + '/ghost/editor/' + post.id + '/');
+                    //return res.redirect(config.paths.subdir + '/ghost/editor/' + post.id + '/');
+                    return Promise.reject(new errors.NotFoundError());
                 } else if (params.edit !== undefined) {
                     // reject with type: 'NotFound'
                     return Promise.reject(new errors.NotFoundError());

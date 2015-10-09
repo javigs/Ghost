@@ -6,6 +6,8 @@
 var moment          = require('moment'),
     date;
 
+moment.locale('es');
+
 date = function (context, options) {
     if (!options && context.hasOwnProperty('hash')) {
         options = context;

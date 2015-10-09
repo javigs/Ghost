@@ -2,6 +2,7 @@ var frontend    = require('../controllers/frontend'),
     config      = require('../config'),
     express     = require('express'),
     utils       = require('../utils'),
+    contact     = require('../controllers/contact'),
 
     frontendRoutes;
 
@@ -32,6 +33,9 @@ frontendRoutes = function frontendRoutes(middleware) {
         /*jslint unparam:true*/
         res.redirect(subdir + '/ghost/');
     });
+
+    // ### Custom
+    router.post('/sendcontact/', contact.doSend);
 
     // password-protected frontend route
     privateRouter.route('/')
